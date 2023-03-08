@@ -93,8 +93,7 @@ function currentCityWeather(e, cityInput) {
         $("#city-wind-current").text(Math.round(currentResponse.wind.speed) + " mph (" +
         Math.round((currentResponse.wind.speed) * 0.44704) + " m/s)");
 
-        // City wind direction
-        // Credit: https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
+        
         $("#city-direction-current").text(degreesToCompass(currentResponse.wind.deg));
 
         // Current weather icon
@@ -116,7 +115,7 @@ function currentCityWeather(e, cityInput) {
         console.log("Sunset: " + sunsetTimeStamp);
         console.log(currentDate);
 
-        // Check if time is past sunrise but not past sunset, set to light mode
+        
         if (currentDate >= sunriseTimeStamp && currentDate < sunsetTimeStamp) {
             console.log("Day time");
             $("#search-sidebar").addClass("bg-light").removeClass("bg-dark");
@@ -124,7 +123,7 @@ function currentCityWeather(e, cityInput) {
             $("body").css({ "background-color": "white", "color": "black" });
         }
 
-        // Check if time is past sunset, set to dark mode
+        
         else {
             console.log("Night time");
             $("#search-sidebar").addClass("bg-dark").removeClass("bg-light");
@@ -138,7 +137,7 @@ function currentCityWeather(e, cityInput) {
     });
 }
 
-// Credit: https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
+
 function degreesToCompass(degree) {
     var val = Math.floor((degree / 22.5) + 0.5);
     var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
@@ -147,9 +146,11 @@ function degreesToCompass(degree) {
 
 function forecastedCityWeather(e, latitude, longitude) {
     e.preventDefault();
+
+
     // 5 day forecasts
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + key,
+        url: "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}",
         async: false,
         method: "GET"
     }).then(function (forecastedResponse) {
