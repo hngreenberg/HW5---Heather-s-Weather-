@@ -27,6 +27,6 @@ THEN I am again presented with current and future conditions for that city
 
 <img width="731" alt="Screen Shot 2023-01-25 at 8 04 32 PM" src="https://user-images.githubusercontent.com/119267074/214757504-c6a325e6-1f66-44ea-b695-80549d06df6c.png">
 
-### Deployment URL: 
+### Deployment URL: https://hngreenberg.github.io/HW5---Heather-s-Weather-/
 
 
